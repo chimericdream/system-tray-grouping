@@ -87,4 +87,23 @@ so a shared config is portable between machines.
 ## Progress
 
 - [x] 1. Scaffold
-- [x] 2. Core config model and serializer (persistence to disk still to do)
+- [x] 2. Core: config model, serializer, atomic store, launch planning
+- [x] 3. Tray MVP: icon per group, icon menu, launch, single instance
+      (a second launch opens settings)
+- [x] 4. Settings UI: groups, entries, drag-and-drop, reordering, group icon
+- [x] 5. Discovery: Start Menu scan, noise filtering, publisher suggestions.
+      Packaged (Store) apps are not discovered yet; they can be added by hand.
+- [x] 6. Polish: start with Windows, DPI-scaled menu icons, left/right click
+      both open the menu, experimental WinForms dark mode
+- [~] 7. Release: tag-triggered publish workflow (self-contained single file,
+      compressed, ~49 MB) and CONTRIBUTING are done. Still needed: README
+      screenshots, and a first tagged release.
+
+## Next
+
+- Verify the UI by hand: dark/light menus, high-DPI icons, multi-monitor menu
+  placement. Automated tests only cover construction.
+- Discover packaged (Store) apps.
+- Custom flyout menu if native dark mode proves inadequate.
+- Auto-populate groups by rule (publisher/folder).
+- winget/scoop manifests.

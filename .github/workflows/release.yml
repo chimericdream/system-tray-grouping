@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: jdx/mise-action@v2
+
+      - name: Test
+        run: mise exec -- dotnet test --configuration Release
+
+      - name: Publish
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          mise exec -- dotnet publish src/TrayGroups.Host \
+            --configuration Release \
+            --runtime win-x64 \
+            --self-contained \
+            -p:PublishSingleFile=true \
+            -p:IncludeNativeLibrariesForSelfExtraction=true \
+            -p:EnableCompressionInSingleFile=true \
+            -p:Version="$version" \
+            --output artifacts/publish
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $name = "TrayGroups-${env:GITHUB_REF_NAME}-win-x64.zip"
+          Compress-Archive -Path artifacts/publish/TrayGroups.Host.exe, LICENSE, README.md -DestinationPath $name
+          "ASSET=$name" >> $env:GITHUB_ENV
+
+      - name: Create GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "$ASSET" --generate-notes --title "$GITHUB_REF_NAME"
