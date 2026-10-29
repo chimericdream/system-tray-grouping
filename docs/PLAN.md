@@ -77,9 +77,14 @@ so a shared config is portable between machines.
 - Windows' per-icon hide toggle only lists apps that have shown an icon at
   least once, and some system icons can't be hidden.
 
-## Open questions
+## Decisions
 
-- Group icon: user-chosen image, or an auto-composed grid of member icons?
-- Menu: native `ContextMenuStrip`, or a custom flyout for better styling and
-  dark mode?
-- Distribution: zip only, or also winget/scoop manifests?
+- Group icon: user-chosen image (auto-composed grid may come later).
+- Menu: native `ContextMenuStrip` first; a custom flyout is a possible later
+  upgrade for dark-mode styling.
+- Distribution: zip from GitHub Releases only for now; winget/scoop later.
+
+## Progress
+
+- [x] 1. Scaffold
+- [x] 2. Core config model and serializer (persistence to disk still to do)

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "groups": [
+    {
+      "id": "utilities",
+      "name": "Utilities",
+      "entries": [
+        { "name": "Notepad", "target": "%SystemRoot%\\notepad.exe" },
+        { "name": "Calculator", "target": "%SystemRoot%\\System32\\calc.exe" }
+      ]
+    }
+  ]
+}
