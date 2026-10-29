@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: jdx/mise-action@v2
+
+      - name: Build
+        run: mise exec -- dotnet build --configuration Release
+
+      - name: Test
+        run: mise exec -- dotnet test --configuration Release --no-build
