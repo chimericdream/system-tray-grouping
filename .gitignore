@@ -1,0 +1,26 @@
+## .NET build output
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+artifacts/
+*.nupkg
+
+## IDEs / editors
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+## Test output
+TestResults/
+coverage/
+
+## OS
+Thumbs.db
+Desktop.ini
+
+## Local-only files
+*.local.json
+.claude/
+mise.local.toml
