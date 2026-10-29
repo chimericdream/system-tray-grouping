@@ -36,7 +36,7 @@ Solution layout:
 ```
 src/
   TrayGroups.Core/   config model, persistence, app discovery, launching
-  TrayGroups.App/    WinForms host: tray icons, menus, settings UI
+  TrayGroups.Host/   WinForms host: tray icons, menus, settings UI
 tests/
   TrayGroups.Core.Tests/
 docs/

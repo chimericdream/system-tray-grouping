@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/TrayGroups.App/TrayGroups.App.csproj" />
+    <Project Path="src/TrayGroups.Host/TrayGroups.Host.csproj" />
     <Project Path="src/TrayGroups.Core/TrayGroups.Core.csproj" />
   </Folder>
   <Folder Name="/tests/">
